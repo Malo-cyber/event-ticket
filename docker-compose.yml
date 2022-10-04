@@ -1,0 +1,57 @@
+version: "3.7"
+
+services:
+  database:
+    image: mysql:latest
+    volumes:
+      - db-mysql-data:/var/lib/mysql
+      - ./backend/public:/docker-entrypoint-initdb.d
+    container_name: db-container
+    ports:
+    - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: ticketdb
+    restart: always
+    networks: 
+      - mysql
+
+  backend:
+    image: malozorus/event-ticketing-platform:backend
+    build: ./backend
+    container_name: backend-container 
+    depends_on:
+      - database
+    ports:
+      - 1080:1080
+    environment:
+      HOST: database
+      DATABASE: ticketdb
+      USER: root
+      PASSWORD: password
+      DIALECT: mysql
+    command: npm run dev
+    restart: always
+    networks: 
+      - mysql
+      - backend_network
+  
+  frontend:
+    image: malozorus/event-ticketing-platform:frontend
+    build: ./frontend/event-front
+    container_name: frontend-container
+    depends_on:
+      - backend
+    ports:
+      - 8080:4200
+    command: ng serve --host 0.0.0.0
+    restart: always
+    networks:
+      - backend_network
+
+volumes:
+  db-mysql-data:
+networks:
+  mysql:
+  backend_network:
+  

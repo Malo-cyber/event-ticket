@@ -1,0 +1,41 @@
+header {
+    text-align: center;
+    background-color: rgb(113, 202, 207);
+    margin-bottom: 20px;
+    box-shadow: lightgray 4px 4px 20px;
+  }
+  .header-title{
+    display: flex;
+    flex-direction: column;
+    min-height: 80px;
+    justify-content: center;
+    align-items: center;
+  }
+  h1{
+    color: rgb(245, 236, 236);
+    margin: 0;
+  }
+  nav {
+    background-color: rgb(47, 153, 158);
+    overflow: hidden;
+    justify-content: center;
+  }
+  .landing-links a{
+    float: left;
+    color: #eef7f6;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-radius: 2px;
+  }
+  .landing-links a:hover {
+    background-color: #ddd;
+    color: rgb(165, 158, 158);
+  }
+  .landing-links a.active {
+    background-color: rgb(113, 202, 207);
+    color: white;
+  }
+
+  

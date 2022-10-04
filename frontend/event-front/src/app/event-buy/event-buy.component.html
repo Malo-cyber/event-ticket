@@ -1,0 +1,12 @@
+<div class="container" >
+    <div class="card-container">
+        <app-event-card *ngIf="event$ | async as event" [event]="event"></app-event-card>
+    </div>
+    <div class="form-container" *ngIf="isBuy == false">
+        <app-participant-array [ticketForm]="ticketForm"></app-participant-array>
+        <app-order-checkout [checkoutFormGroup]="ticketForm" (isBuy)="ticketValidated()"></app-order-checkout>
+    </div>
+    <div class="form-container" *ngIf="isBuy == true">
+        <p> Ticket buy and validate ! </p>
+    </div>
+</div>

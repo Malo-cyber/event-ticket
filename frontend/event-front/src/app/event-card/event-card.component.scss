@@ -1,0 +1,30 @@
+.event-card {
+  box-shadow: lightgrey 4px 4px 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img {
+    display: block;
+    width: 70%;
+  }
+  p {
+    font-weight: 300;
+    font-size: 16px;
+  }
+  button {
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    border: none;
+    box-shadow: lightgray 3px 3px 7px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    &:active {
+      transform: translate(1px, 1px);
+      box-shadow: lightgray 0 0 5px;
+  }
+  }
+}

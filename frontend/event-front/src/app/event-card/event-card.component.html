@@ -1,0 +1,7 @@
+<div class="event-card">
+    <img src={{event.imageUrl}}>
+    <h2>{{event.name}}</h2>
+    <p> location : {{event.location}}</p>
+    <p>Date : {{ event.date | date: 'dd/MM/yy'}}</p>
+    <div class="buttonbuy"> <button (click)="onContinue(event.id)"> Buy : {{event.price}}$</button></div>  
+</div>

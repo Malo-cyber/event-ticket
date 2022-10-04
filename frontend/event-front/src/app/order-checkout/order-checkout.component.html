@@ -1,0 +1,11 @@
+
+<h1 class ="titre">Checkout ticket</h1>
+<div class ="card-checkout"> <h2> Evenement : {{event.name}} Date: {{ event.date | date: 'dd/MM/yy'}} - 1 Tickets</h2> 
+    <app-participant-array [ticketForm]="checkoutFormGroup" [isEdit]="false"></app-participant-array>
+    <div class="action-buttons">
+        <button type="submit" (click)="onSubmitForm()" [disabled]="checkoutFormGroup.invalid"> proceed to payment</button>
+    </div>
+</div> 
+
+
+    
